@@ -1,40 +1,41 @@
 let gridSize = 16;
-//let gridArea = gridSize * gridSize;
-let squareSize = 500 / gridSize;
-let squareSizeString = squareSize.toString() + "px"
 
-//console.log(gridArea);
+let squareSize = 500 / gridSize;
+let squareSizeString = squareSize.toString() + "px";
+
+let containerSize = 500 + (gridSize * 2);
+let containerSizeString = containerSize.toString() + "px";
 
 const container = document.getElementById("container");
 
-let auto = "auto ".repeat(gridSize)
+let auto = "auto ".repeat(gridSize);
 
 container.style.gridTemplateColumns = auto;
 container.style.gridTemplateRows = auto;
-
-//const square = document.createElement("div")
-
-//square.style.width = squareSizeString;
-//square.style.height = squareSizeString;
-//square.style.backgroundColor = "white";
-
-//container.appendChild(square);
+container.style.width = containerSizeString;
+container.style.height = containerSizeString;
 
 function setGrid(gridArea) {
     gridArea = gridSize * gridSize;
-    //console.log(gridArea);
 
     for (let i = 0; i < gridArea; i++) {
-        const square = document.createElement("div")
+        const square = document.createElement("div");
+        square.setAttribute("id", i);
+        square.classList.toggle("squareItem");
 
         square.style.width = squareSizeString;
         square.style.height = squareSizeString;
         square.style.backgroundColor = "white";
 
         container.appendChild(square);
-        //console.log("square made")
+
+        document.getElementById(i).addEventListener("mouseenter", paint = () => {
+            document.getElementById(i).style.backgroundColor = "black";
+        });
     };
-    //console.log("function")
-}
+};
 
 setGrid();
+
+// Need to get all squares, listen for hover (mouseover/out), 
+// then toggle blackBg for that one square

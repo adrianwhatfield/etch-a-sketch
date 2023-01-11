@@ -1,10 +1,14 @@
 #container {
-    height: 530px;
-    width: 530px;
+    height: 500px;
+    width: 500px;
     display: grid;
     justify-content: space-between;
     align-content: space-between;
     background-color: rgb(201, 201, 201);
     padding: 5px;
     gap: 2px;
+}
+
+.blackBg {
+    background-color: black;
 }
