@@ -1,4 +1,4 @@
-let gridSize = "16";
+let gridSize = 16;
 
 const container = document.getElementById("container");
 const changeSizeButton = document.getElementById("changeSize");

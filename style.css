@@ -24,6 +24,7 @@ body {
     padding: 20px;
     display: flex;
     gap: 20px;
+    flex-direction: column;
 }
 
 h1 {
@@ -36,6 +37,7 @@ button {
     color: white;
     padding: 10px;
     border-radius: 10px;
+    max-height: 50px;
 }
 
 button:hover {
@@ -44,4 +46,8 @@ button:hover {
     color: black;
     padding: 10px;
     border-radius: 10px;
+}
+
+.content {
+    display: flex;
 }
