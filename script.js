@@ -50,7 +50,7 @@ function setGrid(gridArea) {
         });
     };
 
-    containerSize = 700 + (gridSize * 2);
+    containerSize = 700;
     containerSizeString = containerSize.toString() + "px";
 
     auto = "auto ".repeat(gridSize);
