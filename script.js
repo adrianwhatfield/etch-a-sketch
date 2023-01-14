@@ -8,13 +8,6 @@ const rgbMode = document.getElementById("rgbMode");
 changeSizeButton.addEventListener("click", changeSize);
 rgbMode.addEventListener("click", rgb);
 
-container.style.gridTemplateColumns = auto;
-container.style.gridTemplateRows = auto;
-container.style.width = containerSizeString;
-container.style.height = containerSizeString;
-
-setGrid();
-
 function changeSize() {
     clearGrid();
     gridSize = prompt("Grid size?", "16");
@@ -26,8 +19,7 @@ function rgb() {
     let color0 = Math.floor(Math.random() * (256 - 1) + 1);
     let color1 = Math.floor(Math.random() * (256 - 1) + 1);
     let color2 = Math.floor(Math.random() * (256 - 1) + 1);
-    let newColor = `rgb(${color0}, ${color1}, ${color2})`;
-    return newColor;
+    return `rgb(${color0}, ${color1}, ${color2})`;
 }
 
 function clearGrid() {
@@ -36,13 +28,16 @@ function clearGrid() {
     };
 };
 
-function setGrid(gridArea) {
+function setGrid() {
     gridSize = parseInt(gridSize);
-    gridArea = gridSize * gridSize;
 
     if (gridSize > 100) {
         gridSize = 100;
+    } else if (gridSize == 0) {
+        gridSize = 16;
     };
+
+    let gridArea = gridSize * gridSize;
 
     squareSize = 700 / gridSize;
     squareSizeString = squareSize.toString() + "px";
@@ -77,3 +72,5 @@ function setGrid(gridArea) {
     container.style.width = containerSizeString;
     container.style.height = containerSizeString;
 };
+
+setGrid();
