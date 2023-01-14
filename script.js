@@ -1,9 +1,12 @@
 let gridSize = 16;
+let isRgb = false;
 
 const container = document.getElementById("container");
 const changeSizeButton = document.getElementById("changeSize");
+const rgbMode = document.getElementById("rgbMode");
 
 changeSizeButton.addEventListener("click", changeSize);
+rgbMode.addEventListener("click", rgb);
 
 container.style.gridTemplateColumns = auto;
 container.style.gridTemplateRows = auto;
@@ -18,11 +21,20 @@ function changeSize() {
     setGrid();
 }
 
+function rgb() {
+    isRgb = true;
+    let color0 = Math.floor(Math.random() * (256 - 1) + 1);
+    let color1 = Math.floor(Math.random() * (256 - 1) + 1);
+    let color2 = Math.floor(Math.random() * (256 - 1) + 1);
+    let newColor = `rgb(${color0}, ${color1}, ${color2})`;
+    return newColor;
+}
+
 function clearGrid() {
     while (container.firstChild) {
         container.removeChild(container.lastChild);
-    }
-}
+    };
+};
 
 function setGrid(gridArea) {
     gridSize = parseInt(gridSize);
@@ -46,7 +58,12 @@ function setGrid(gridArea) {
         container.appendChild(square);
 
         document.getElementById(i).addEventListener("mouseenter", paint = () => {
-            document.getElementById(i).style.backgroundColor = "black";
+            if (isRgb == false) {
+                document.getElementById(i).style.backgroundColor = "black";
+            } else if (isRgb == true) {
+                document.getElementById(i).style.backgroundColor = rgb();
+            }
+            
         });
     };
 
